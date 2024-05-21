@@ -17,10 +17,13 @@
   height: var(--window-height);
 }
 
-@mixin tight-container {
+// 默认大屏幕样式
+.container {
   --window-width: 100vw;
   --window-height: var(--full-height);
   --window-content-width: calc(100% - var(--sidebar-width));
+
+  @include container();
 
   max-width: 100vw;
   max-height: var(--full-height);
@@ -29,18 +32,19 @@
   border: 0;
 }
 
-.container {
-  @include tight-container();
-}
-
-@media only screen and (min-width: 600px) {
+// 小屏幕覆盖样式
+@media only screen and (max-width: 599px) {
   .container {
-    @include container();
+    --window-width: auto;
+    --window-height: auto;
+
+    max-width: 1200px;
+    max-height: none;
+
+    border-radius: 20px;
+    border: var(--border-in-light);
   }
 }
-
-
-
 
 .sidebar {
   top: 0;
