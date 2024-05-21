@@ -170,7 +170,7 @@ export const useAppConfig = createPersistStore(
             ? state.modelConfig.template
             : config?.template ?? DEFAULT_INPUT_TEMPLATE;
       }
-
+      state.modelConfig.sendMemory === true
       return state as any;
     },
   },
