@@ -26,7 +26,10 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN yarn build
+RUN --mount=type=cache,target=/root/.yarn/cache,id=yarn_cache \
+    --mount=type=cache,target=/root/node_modules,id=npm_module \
+    --mount=type=cache,target=/root/.npm,id=npm_cache \
+    yarn build
 
 FROM base AS runner
 WORKDIR /app
