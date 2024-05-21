@@ -35,12 +35,12 @@
 // 小屏幕覆盖样式
 @media only screen and (max-width: 599px) {
   .container {
-    background-color: none;
-    border: none;
+    background-color: var(--white);
+    border: var(--border-in-light);
     border-radius: 20px;
-    box-shadow: none;
-    color: none;
-    background-color: none;
+    box-shadow: var(--shadow);
+    color: var(--black);
+    background-color: var(--white);
     min-width: 600px;
     min-height: 370px;
     max-width: 1200px;
@@ -49,8 +49,8 @@
     overflow: hidden;
     box-sizing: border-box;
 
-    width: none;
-    height: none;
+    width: var(--window-width);
+    height: var(--window-height);
   }
 }
 
