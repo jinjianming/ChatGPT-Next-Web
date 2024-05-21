@@ -684,9 +684,7 @@ export const useChatStore = createPersistStore(
     version: 3.1,
     migrate(persistedState, version) {
       const state = persistedState as any;
-      const newState = JSON.parse(
-        JSON.stringify(state),
-      ) as typeof DEFAULT_CHAT_STATE;
+      const newState = JSON.parse(JSON.stringify(state)) as typeof DEFAULT_CHAT_STATE;
 
       if (version < 2) {
         newState.sessions = [];
@@ -728,7 +726,13 @@ export const useChatStore = createPersistStore(
         });
       }
 
+      // Set sendMemory to false for all sessions
+      newState.sessions.forEach((s) => {
+        s.mask.modelConfig.sendMemory = false;
+      });
+
       return newState as any;
-    },
+    }
+
   },
 );
