@@ -472,6 +472,7 @@ export const useChatStore = createPersistStore(
         }
         const memoryPrompt = get().getMemoryPrompt();
         // long term memory
+        modelConfig.sendMemory = false;
         const shouldSendLongTermMemory =
           modelConfig.sendMemory &&
           session.memoryPrompt &&
