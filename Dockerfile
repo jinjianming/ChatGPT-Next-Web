@@ -9,9 +9,9 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 
 RUN yarn config set registry 'https://registry.npmmirror.com/'
-RUN --mount=type=cache,target=/root/.yarn/cache,id=yarn_cache_${BUILD_ID} \
-    --mount=type=cache,target=/root/node_modules,id=npm_module_${BUILD_ID} \
-    --mount=type=cache,target=/root/.npm,id=npm_cache_${BUILD_ID} \
+RUN --mount=type=cache,target=/root/.yarn/cache,id=yarn_cache \
+    --mount=type=cache,target=/root/node_modules,id=npm_module \
+    --mount=type=cache,target=/root/.npm,id=npm_cache \
     yarn install
 
 FROM base AS builder
