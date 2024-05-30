@@ -139,6 +139,8 @@ export const KnowledgeCutOffDate: Record<string, string> = {
   "gpt-4-1106-preview": "2023-04",
   "gpt-4-0125-preview": "2023-12",
   "gpt-4-vision-preview": "2023-04",
+  "gpt-4o": "2023-10",
+  "gpt-4o-2024-05-13": "2023-10",
   // After improvements,
   // it's now easier to add "KnowledgeCutOffDate" instead of stupid hardcoding it, as was done previously.
   "gemini-pro": "2023-12",
