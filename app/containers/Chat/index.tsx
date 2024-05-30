@@ -64,7 +64,7 @@ export default MenuLayout(function SessionList(props) {
       md:px-0
     `}
     >
-      <div data-tauri-drag-region>
+      {/* <div data-tauri-drag-region>
         <div
           className={`
             flex items-center justify-between
@@ -95,7 +95,7 @@ export default MenuLayout(function SessionList(props) {
         >
           Build your own AI assistant.
         </div>
-      </div>
+      </div> */}
 
       <div className={`flex-1 overflow-y-auto max-md:pb-chat-panel-mobile `}>
         <DragDropContext onDragEnd={onDragEnd}>
