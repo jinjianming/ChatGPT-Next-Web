@@ -66,12 +66,12 @@ export default function MenuLayout<
         `}
       >
         <div
-          className={`
-            flex flex-col px-6 
-            h-[100%] 
-            max-md:w-[100%] max-md:px-4 max-md:pb-4 max-md:flex-1
-            md:relative md:basis-sidebar  md:pb-6  md:rounded-md md:bg-menu
-          `}
+          // className={`
+          //   flex flex-col px-6
+          //   h-[100%]
+          //   max-md:w-[100%] max-md:px-4 max-md:pb-4 max-md:flex-1
+          //   md:relative md:basis-sidebar  md:pb-6  md:rounded-md md:bg-menu
+          // `}
         >
           <ListComponent
             {...props}
