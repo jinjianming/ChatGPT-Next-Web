@@ -171,31 +171,23 @@ function _Chat() {
       if (accessStore.disableFastLink) return;
 
       try {
-        const payload = JSON.parse(text) as {
-          key?: string;
-          url?: string;
-        };
+        const payload = JSON.parse(text);
 
         console.log("[Command] got settings from url: ", payload);
 
-        if (payload.key || payload.url) {
-          showConfirm(
-            Locale.URLCommand.Settings +
-              `\n${JSON.stringify(payload, null, 4)}`,
-          ).then((res) => {
-            if (!res) return;
-            if (payload.key) {
-              accessStore.update(
-                (access) => (access.openaiApiKey = payload.key!),
-              );
-            }
-            if (payload.url) {
-              accessStore.update((access) => (access.openaiUrl = payload.url!));
-            }
-          });
+        // 直接更新配置，不显示确认对话框
+        if (payload.key) {
+          accessStore.update((access) => (access.openaiApiKey = payload.key));
         }
-      } catch {
-        console.error("[Command] failed to get settings from url: ", text);
+        if (payload.url) {
+          accessStore.update((access) => (access.openaiUrl = payload.url));
+        }
+      } catch (error) {
+        console.error(
+          "[Command] failed to get settings from url: ",
+          text,
+          error,
+        );
       }
     },
   });
