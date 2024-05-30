@@ -106,7 +106,8 @@ export const Azure = {
 export const Google = {
   ExampleEndpoint: "https://generativelanguage.googleapis.com/",
   ChatPath: (modelName: string) => `v1beta/models/${modelName}:generateContent`,
-  VisionChatPath: (modelName: string) => `v1beta/models/${modelName}:generateContent`,
+  VisionChatPath: (modelName: string) =>
+    `v1beta/models/${modelName}:generateContent`,
 };
 
 export const DEFAULT_INPUT_TEMPLATE = `{{input}}`; // input / time / model / lang
@@ -123,7 +124,7 @@ You are ChatGPT, a large language model trained by {{ServiceProvider}}.
 Knowledge cutoff: {{cutoff}}
 Current model: {{model}}
 Current time: {{time}}
-Latex inline: \\(x^2\\) 
+Latex inline: \\(x^2\\)
 Latex block: $$e=mc^2$$
 `;
 
@@ -161,6 +162,7 @@ const openaiModels = [
   "gpt-4-32k-0314",
   "gpt-4-32k-0613",
   "gpt-4-turbo",
+  "gpt-4o",
   "gpt-4-turbo-preview",
   "gpt-4-vision-preview",
   "gpt-4-turbo-2024-04-09",
